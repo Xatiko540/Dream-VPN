@@ -71,10 +71,18 @@ class HomePage extends StatelessWidget {
                           Icons.navigate_next_outlined,
                           color: Theme.of(context).iconTheme.color,
                         ),
-                        onPressed: () => Navigator.of(context).push(
-                            MaterialPageRoute(
-                                builder: (builder) =>
-                                    const ChooseLocationRoute())) as int),
+                      onPressed: () async {
+                        final result = await Navigator.of(context).push(
+                          MaterialPageRoute(builder: (_) => const ChooseLocationRoute()),
+                        );
+
+                        if (result is int) {
+                          // можешь обработать результат
+                          // например:
+                          Provider.of<UserPreference>(context, listen: false).locationIndex = result;
+                        }
+                      },
+                    ),
                   ],
                 ),
               ),
