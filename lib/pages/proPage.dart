@@ -9,7 +9,7 @@ class ProPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Map<String, String>> _list = [
+    List<Map<String, String>> list = [
       {
         'title': 'Anonymous',
         'icon': 'assets/fi-sr-incognito.svg',
@@ -38,7 +38,6 @@ class ProPage extends StatelessWidget {
         children: [
           SvgPicture.asset(
             'assets/logo.svg',
-            cacheColorFilter: true,
           ),
           const SizedBox(height: 12),
           RichText(
@@ -67,15 +66,15 @@ class ProPage extends StatelessWidget {
                   mainAxisSpacing: 8,
                   crossAxisSpacing: 24),
               children: List.generate(
-                  _list.length,
+                  list.length,
                   (index) => Column(
                         children: [
                           Row(
                             children: [
-                              SvgPicture.asset(_list[index]['icon'] as String),
+                              SvgPicture.asset(list[index]['icon'] as String),
                               const SizedBox(width: 8.0),
                               Text(
-                                _list[index]['title'] as String,
+                                list[index]['title'] as String,
                                 style: Theme.of(context)
                                     .primaryTextTheme
                                     .titleLarge,
@@ -83,7 +82,7 @@ class ProPage extends StatelessWidget {
                             ],
                           ),
                           const SizedBox(height: 8.0),
-                          Text(_list[index]['description'] as String,
+                          Text(list[index]['description'] as String,
                               overflow: TextOverflow.fade,
                               style:
                                   Theme.of(context).primaryTextTheme.bodyMedium)

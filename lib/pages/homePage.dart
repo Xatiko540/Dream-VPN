@@ -1,7 +1,6 @@
 //ignore_for_file: file_names
 import 'dart:math';
 import 'package:dreamvpn/model/flags.dart';
-
 import '../model/UserPreference.dart';
 import '../model/themeCollection.dart';
 import 'package:provider/provider.dart';
@@ -9,8 +8,21 @@ import '/routes/chooseLocationRoute.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +42,7 @@ class HomePage extends StatelessWidget {
                           color: isDarkTheme ? Colors.white : Colors.black),
                       text:
                           Provider.of<UserPreference>(context).isCountDownStart
-                              ? Random().nextInt(500).toString() + ' '
+                              ? '${Random().nextInt(500)} '
                               : '___',
                       children: const [
                     TextSpan(text: 'KB/S', style: TextStyle(fontSize: 12))
@@ -120,11 +132,11 @@ class HomePage extends StatelessWidget {
         color: isDarkTheme ? const Color(0xff38323F) : const Color(0xffC7B4E3),
         fit: BoxFit.cover,
       ),
-      Builder(builder: (_context) {
-        var countDown = Provider.of<UserPreference>(_context);
+      Builder(builder: (context) {
+        var countDown = Provider.of<UserPreference>(context);
         return GestureDetector(
           onTap: () => Provider.of<UserPreference>(context, listen: false)
-              .countDownSwitch,
+              .toggleVPN(),
           child: Card(
             elevation: 6,
             color:

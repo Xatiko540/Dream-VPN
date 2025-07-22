@@ -15,7 +15,7 @@ class _SettingsRouteState extends State<SettingsRoute> {
   bool killSwitch = false, proVpn = false, notifySwitch = false;
   List<String> connectionModes = ['OpenVPN', 'IPSec', 'ISSR'];
 
-  setConnectionValue(int? value) {
+  void setConnectionValue(int? value) {
     setState(() {
       connectionValue = value!;
     });

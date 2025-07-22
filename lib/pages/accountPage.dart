@@ -10,7 +10,7 @@ import '../model/themeCollection.dart';
 class AccountPage extends StatelessWidget {
   const AccountPage({Key? key}) : super(key: key);
 
-  customListTile(BuildContext context, String title, String icon,
+  ListTile customListTile(BuildContext context, String title, String icon,
           {Widget? trailing, String? subtitle, VoidCallback? onTap}) =>
       ListTile(
           onTap: onTap,
@@ -32,7 +32,7 @@ class AccountPage extends StatelessWidget {
           ),
           trailing: trailing);
 
-  upgradeButton(context) => GestureDetector(
+  GestureDetector upgradeButton(context) => GestureDetector(
       onTap: () => Navigator.of(context)
           .push(MaterialPageRoute(builder: (builder) => const ProRoute())),
       child: Container(
