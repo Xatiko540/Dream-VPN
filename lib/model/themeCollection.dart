@@ -32,37 +32,33 @@ class ThemeCollection extends ChangeNotifier {
 
 // Let's define a light theme for our Application
   ThemeData get _lightTheme => ThemeData(
-      primarySwatch: MaterialColor(0xffFFFFFF, _colorSwatch(1, 117, 194)),
       primaryColor: const Color(0xff6622CC),
-      accentColor: const Color(0xffAE77FF),
+      hintColor: const Color(0xffAE77FF),
       canvasColor: const Color(0xffFFFFFF),
-      backgroundColor: const Color(0xffFFFFFF),
       iconTheme: const IconThemeData(color: Colors.black87),
       primaryTextTheme: TextTheme(
-          bodyText1: const TextStyle(color: Colors.black, fontSize: 15),
-          bodyText2: const TextStyle(color: Colors.black54, fontSize: 15),
-          subtitle1: const TextStyle(color: Colors.black),
-          headline3: const TextStyle(
+          bodyLarge: const TextStyle(color: Colors.black, fontSize: 15),
+          bodyMedium: const TextStyle(color: Colors.black54, fontSize: 15),
+          titleMedium: const TextStyle(color: Colors.black),
+          displaySmall: const TextStyle(
               color: Colors.black, fontSize: 27, fontWeight: FontWeight.bold),
-          headline6: const TextStyle(color: Colors.black),
-          caption: TextStyle(
-              color: Colors.grey.shade700, wordSpacing: -1, fontSize: 12)));
+          titleLarge: const TextStyle(color: Colors.black),
+          bodySmall: TextStyle(
+              color: Colors.grey.shade700, wordSpacing: -1, fontSize: 12)), colorScheme: ColorScheme.fromSwatch(primarySwatch: MaterialColor(0xffFFFFFF, _colorSwatch(1, 117, 194))).copyWith(surface: const Color(0xffFFFFFF)));
 
 // Now define a dark theme for our Application
   ThemeData get _darkTheme => ThemeData(
-      primarySwatch: MaterialColor(0xff0B0415, _colorSwatch(2, 86, 155)),
       primaryColor: const Color(0xff6622CC),
-      accentColor: const Color(0xffAE77FF),
+      hintColor: const Color(0xffAE77FF),
       canvasColor: const Color(0xff0B0415),
-      backgroundColor: const Color(0xff0B0415),
       iconTheme: const IconThemeData(color: Colors.white),
       primaryTextTheme: const TextTheme(
-          bodyText1: TextStyle(color: Colors.white, fontSize: 15),
-          bodyText2: TextStyle(color: Colors.white70, fontSize: 15),
-          subtitle1: TextStyle(color: Colors.white),
-          headline3: TextStyle(
+          bodyLarge: TextStyle(color: Colors.white, fontSize: 15),
+          bodyMedium: TextStyle(color: Colors.white70, fontSize: 15),
+          titleMedium: TextStyle(color: Colors.white),
+          displaySmall: TextStyle(
               color: Colors.white, fontSize: 27, fontWeight: FontWeight.bold),
-          headline6: const TextStyle(color: Colors.white),
-          caption:
-              TextStyle(color: Colors.white54, wordSpacing: -1, fontSize: 12)));
+          titleLarge: TextStyle(color: Colors.white),
+          bodySmall:
+              TextStyle(color: Colors.white54, wordSpacing: -1, fontSize: 12)), colorScheme: ColorScheme.fromSwatch(primarySwatch: MaterialColor(0xff0B0415, _colorSwatch(2, 86, 155))).copyWith(surface: const Color(0xff0B0415)));
 }

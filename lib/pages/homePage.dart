@@ -82,10 +82,10 @@ class HomePage extends StatelessWidget {
                 Flags.list[currentLocIndex]['name'] as String,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
-                style: Theme.of(context).primaryTextTheme.headline6,
+                style: Theme.of(context).primaryTextTheme.titleLarge,
               ),
               subtitle: Text('IP: 79.110.53.95',
-                  style: Theme.of(context).primaryTextTheme.caption),
+                  style: Theme.of(context).primaryTextTheme.bodySmall),
             );
           }),
         ),
@@ -136,7 +136,7 @@ class HomePage extends StatelessWidget {
                       width: countDown.isCountDownStart ? 35 : 50,
                       color: countDown.isCountDownStart
                           ? Colors.redAccent.shade200
-                          : Theme.of(context).accentColor,
+                          : Theme.of(context).colorScheme.secondary,
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 8.0),
@@ -146,7 +146,7 @@ class HomePage extends StatelessWidget {
                             : 'Start',
                         style: TextStyle(
                           fontSize: 14,
-                          color: Theme.of(context).accentColor,
+                          color: Theme.of(context).colorScheme.secondary,
                         ),
                       ),
                     )

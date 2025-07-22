@@ -30,11 +30,11 @@ class _SettingsRouteState extends State<SettingsRoute> {
           child: Text(title,
               style: Theme.of(context)
                   .primaryTextTheme
-                  .subtitle1!
+                  .titleMedium!
                   .copyWith(color: Colors.grey)),
         ),
         SwitchListTile(
-            activeColor: Theme.of(context).accentColor,
+            activeColor: Theme.of(context).colorScheme.secondary,
             inactiveTrackColor:
                 Provider.of<ThemeCollection>(context).isDarkActive
                     ? const Color(0xff38323F)
@@ -42,7 +42,7 @@ class _SettingsRouteState extends State<SettingsRoute> {
             contentPadding: EdgeInsets.zero,
             title: Text(
               description,
-              style: Theme.of(context).primaryTextTheme.subtitle1,
+              style: Theme.of(context).primaryTextTheme.titleMedium,
             ),
             value: value,
             onChanged: onChanged)
@@ -62,7 +62,7 @@ class _SettingsRouteState extends State<SettingsRoute> {
           Text('Connection Mode',
               style: Theme.of(context)
                   .primaryTextTheme
-                  .subtitle1!
+                  .titleMedium!
                   .copyWith(color: Colors.grey)),
           const SizedBox(height: 4),
           Column(
@@ -71,15 +71,15 @@ class _SettingsRouteState extends State<SettingsRoute> {
               contentPadding: EdgeInsets.zero,
               title: Text(
                 e,
-                style: Theme.of(context).primaryTextTheme.subtitle1,
+                style: Theme.of(context).primaryTextTheme.titleMedium,
               ),
               trailing: Radio(
-                  fillColor: MaterialStateProperty.all(
+                  fillColor: WidgetStateProperty.all(
                     connectionModes[connectionValue] != e
                         ? themeData.isDarkActive
                             ? Colors.white70
                             : Colors.grey
-                        : Theme.of(context).accentColor,
+                        : Theme.of(context).colorScheme.secondary,
                   ),
                   value: connectionModes.indexOf(e),
                   groupValue: connectionValue,

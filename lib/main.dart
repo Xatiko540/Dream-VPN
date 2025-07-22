@@ -94,9 +94,11 @@ class _MyHomePageState extends State<MyHomePage> {
           margin: const EdgeInsets.only(left: 32, right: 32, bottom: 16),
           padding: const EdgeInsets.only(top: 8.0),
           decoration: BoxDecoration(
-              color:
-                  const Color(0xff353351).withOpacity(isDarkTheme ? 0.3 : 0.05),
-              borderRadius: BorderRadius.circular(20)),
+            color: const Color(0xff353351).withAlpha(
+              (isDarkTheme ? 0.3 : 0.05) * 255 ~/ 1,
+            ),
+            borderRadius: BorderRadius.circular(20),
+          ),
           child: BottomNavigationBar(
               enableFeedback: true,
               backgroundColor: Colors.transparent,

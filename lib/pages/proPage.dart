@@ -78,7 +78,7 @@ class ProPage extends StatelessWidget {
                                 _list[index]['title'] as String,
                                 style: Theme.of(context)
                                     .primaryTextTheme
-                                    .headline6,
+                                    .titleLarge,
                               )
                             ],
                           ),
@@ -86,7 +86,7 @@ class ProPage extends StatelessWidget {
                           Text(_list[index]['description'] as String,
                               overflow: TextOverflow.fade,
                               style:
-                                  Theme.of(context).primaryTextTheme.bodyText2)
+                                  Theme.of(context).primaryTextTheme.bodyMedium)
                         ],
                       ))),
           decoratedButton(context, '1 MONTH', '9.99', '\$/month', false),
@@ -98,11 +98,12 @@ class ProPage extends StatelessWidget {
               height: kToolbarHeight,
               margin: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 8),
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(65),
-                  color: const Color(0xff353351).withOpacity(0.3)),
+                borderRadius: BorderRadius.circular(65),
+                color: const Color(0xff353351).withAlpha((0.3 * 255).round()),
+              ),
               child: Text(
                 'TRY FOR FREE',
-                style: Theme.of(context).primaryTextTheme.headline6!.copyWith(
+                style: Theme.of(context).primaryTextTheme.titleLarge!.copyWith(
                     color: isDarkTheme ? null : const Color(0xff828282)),
               ),
             ),
@@ -110,7 +111,7 @@ class ProPage extends StatelessWidget {
           Text(
             '7-day free trial. Then 9.99 \$/month',
             textAlign: TextAlign.center,
-            style: Theme.of(context).primaryTextTheme.caption,
+            style: Theme.of(context).primaryTextTheme.bodySmall,
           ),
         ],
       ),
@@ -137,7 +138,7 @@ class ProPage extends StatelessWidget {
                 lt,
                 style: Theme.of(context)
                     .primaryTextTheme
-                    .headline6!
+                    .titleLarge!
                     .copyWith(color: Colors.white),
               ),
               if (isDiscount)
@@ -160,14 +161,14 @@ class ProPage extends StatelessWidget {
                   text: rt_1,
                   style: Theme.of(context)
                       .primaryTextTheme
-                      .headline6!
+                      .titleLarge!
                       .copyWith(color: Colors.white),
                   children: [
                 TextSpan(
                   text: ' $rt_2',
                   style: Theme.of(context)
                       .primaryTextTheme
-                      .bodyText1!
+                      .bodyLarge!
                       .copyWith(color: Colors.white),
                 )
               ])),

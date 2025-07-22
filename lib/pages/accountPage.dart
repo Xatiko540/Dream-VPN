@@ -13,24 +13,24 @@ class AccountPage extends StatelessWidget {
   customListTile(BuildContext context, String title, String icon,
           {Widget? trailing, String? subtitle, VoidCallback? onTap}) =>
       ListTile(
-          onTap: onTap ?? null,
+          onTap: onTap,
           minLeadingWidth: 35,
           dense: true,
           title:
-              Text(title, style: Theme.of(context).primaryTextTheme.subtitle1),
+              Text(title, style: Theme.of(context).primaryTextTheme.titleMedium),
           subtitle: subtitle != null
               ? Text(
                   subtitle,
-                  style: Theme.of(context).primaryTextTheme.caption,
+                  style: Theme.of(context).primaryTextTheme.bodySmall,
                 )
               : null,
           leading: SvgPicture.asset(
             icon,
-            color: Theme.of(context).accentColor,
+            color: Theme.of(context).colorScheme.secondary,
             width: 24,
             alignment: Alignment.centerRight,
           ),
-          trailing: trailing ?? null);
+          trailing: trailing);
 
   upgradeButton(context) => GestureDetector(
       onTap: () => Navigator.of(context)
@@ -46,7 +46,7 @@ class AccountPage extends StatelessWidget {
           'Upgrade',
           style: Theme.of(context)
               .primaryTextTheme
-              .bodyText1!
+              .bodyLarge!
               .copyWith(color: Colors.white),
         ),
       ));
@@ -74,22 +74,26 @@ class AccountPage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 8.0),
             child: Text(
               'Looks like You’re not signed in yet.',
-              style: Theme.of(context).primaryTextTheme.bodyText1,
+              style: Theme.of(context).primaryTextTheme.bodyLarge,
             ),
           ),
-          FlatButton(
-              color: const Color(0xff353351),
-              textColor: Colors.white,
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color(0xff353351),
+              foregroundColor: Colors.white,
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(64)),
-              onPressed: () {},
-              child: const Text('SIGN IN')),
+                borderRadius: BorderRadius.circular(64),
+              ),
+            ),
+            onPressed: () {},
+            child: const Text('SIGN IN'),
+          ),
           customListTile(context, 'User ID', 'assets/id.svg',
               subtitle: '284529462',
               trailing: IconButton(
-                  color: Theme.of(context).accentColor,
+                  color: Theme.of(context).colorScheme.secondary,
                   onPressed: () {},
-                  icon: Icon(Icons.copy_all_rounded))),
+                  icon: const Icon(Icons.copy_all_rounded))),
           divider,
           customListTile(context, 'Base Plan', 'assets/active.svg',
               trailing: upgradeButton(context)),
